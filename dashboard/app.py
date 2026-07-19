@@ -35,11 +35,12 @@ def load_jobs(_cursor):
 
 try:
     conn = psycopg2.connect(
-        host="localhost",
-        database="ai_job_market",
+        host="db.bxjgyyyjwmwpuixbkwhl.supabase.co",
+        database="postgres",
         user="postgres",
-        password="root",
-        port="5432"
+        password="arun23242526!",
+        port="5432",
+        sslmode="require"
     )
     cursor = conn.cursor()
     st.success("✅ Database Connected Successfully!")

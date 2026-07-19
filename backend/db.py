@@ -2,11 +2,13 @@ import psycopg2
 
 try:
     conn = psycopg2.connect(
-        host="localhost",
-        database="ai_job_market",
+        host="db.bxjgyyyjwmwpuixbkwhl.supabase.co",
+        database="postgres",
         user="postgres",
-        password="root",
-        port="5432"
+        password="arun23242526!",
+        port="5432",
+        sslmode="require",
+        connect_timeout=10
     )
 
     cursor = conn.cursor()
