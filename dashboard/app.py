@@ -480,15 +480,7 @@ try:
             else:
                 st.success(f"Found {len(recommended)} recommended jobs!")
 
-                if "Match %" not in recommended.columns and "Match Score" in recommended.columns:
-                    max_score = recommended["Match Score"].max()
-
-                    if max_score > 0:
-                        recommended["Match %"] = (
-                            (recommended["Match Score"] / max_score) * 100
-                        ).round().astype(int).astype(str) + "%"
-                    else:
-                        recommended["Match %"] = "0%"
+               
 
                 available_columns = recommended.columns.tolist()
                 display_columns = [

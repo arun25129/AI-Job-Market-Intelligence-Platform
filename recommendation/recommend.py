@@ -5,6 +5,7 @@ def recommend_jobs(df, user_skills, top_n=5):
     if df.empty:
         return df
 
+    # Clean user skills
     user_skills = [
         skill.strip().lower()
         for skill in user_skills
@@ -51,25 +52,74 @@ def recommend_jobs(df, user_skills, top_n=5):
 
         return skill_score + title_score
 
+    def calculate_skill_match_count(row):
+        job_skills = [
+            skill.strip().lower()
+            for skill in str(row.get("Skills", "")).split(",")
+            if skill.strip()
+        ]
+
+        matched_skills = [
+            skill
+            for skill in job_skills
+            if skill in user_skills
+        ]
+
+        return len(matched_skills)
+
+    def calculate_match_percent(row):
+        job_skills = [
+            skill.strip().lower()
+            for skill in str(row.get("Skills", "")).split(",")
+            if skill.strip()
+        ]
+
+        if not job_skills:
+            return "0%"
+
+        matched_skills = [
+            skill
+            for skill in job_skills
+            if skill in user_skills
+        ]
+
+        percent = round(
+            (len(matched_skills) / len(job_skills)) * 100
+        )
+
+        return f"{percent}%"
+
+   
     result = df.copy()
 
+    
     result["Match Score"] = result.apply(
         calculate_match,
         axis=1
     )
 
+   
     result = result[result["Match Score"] > 0]
+
+    
     result = result.sort_values(
         by="Match Score",
         ascending=False
     )
 
+   
     result = result.head(top_n).copy()
 
+   
     if not result.empty:
-        max_score = result["Match Score"].max()
-        result["Match %"] = (
-            (result["Match Score"] / max_score) * 100
-        ).round().astype(int).astype(str) + "%"
+        result["Match Score"] = result.apply(
+            calculate_skill_match_count,
+            axis=1
+        )
+
+        result["Match %"] = result.apply(
+            calculate_match_percent,
+            axis=1
+        )
 
     return result
