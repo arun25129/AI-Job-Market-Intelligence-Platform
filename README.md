@@ -1,87 +1,154 @@
-# 💼 AI Job Market Intelligence Platform
+# AI Job Market Intelligence Platform
 
-## 📌 Overview
+An AI-powered job market analysis platform built with **Python, PostgreSQL, Machine Learning, NLP, and Streamlit**.
 
-The AI Job Market Intelligence Platform is a Python-based application that collects, stores, analyzes, and visualizes job market data.
+The platform analyzes job-market data, provides interactive analytics, recommends jobs based on user skills, extracts skills from resumes, and predicts salary packages.
 
-It helps users explore hiring trends, salary ranges, required skills, locations, and companies using an interactive Streamlit dashboard.
+## Key Features
 
----
+- Interactive Job Market Dashboard
+- Job Search and Filtering
+- Company-wise and Location-wise Analysis
+- Experience and Skill Analysis
+- Job Recommendation System
+- Skill-Based Job Matching
+- Match Score and Match Percentage
+- PDF Resume Upload
+- Resume Skill Extraction
+- Salary Prediction
+- Annual and Monthly Salary Estimation
+- Salary Package Prediction in LPA
+- Career Growth Insights
 
+## Tech Stack
 
-
-- Job Search
-- Company-wise Analysis
-- Location-wise Analysis
-- Experience Filter
-- Salary Filter
-- Skills Analysis
-- Interactive Charts
-- PostgreSQL Database Integration
-- CSV Download
-- Real-time Dashboard
-
----
-
-
-
+**Programming**
 - Python
-- Streamlit
+
+**Database**
 - PostgreSQL
+- SQL
+
+**Machine Learning & Data**
+- Machine Learning
+- NLP
 - Pandas
+
+**Dashboard & Visualization**
+- Streamlit
 - Plotly
-- Psycopg2
-- Git & GitHub
 
----
+**Development Tools**
+- Git
+- GitHub
+- VS Code
+- pgAdmin
 
+## Project Structure
 
+    AI-Job-Market-Intelligence-Platform/
+    |
+    |-- backend/
+    |-- dashboard/
+    |-- database/
+    |-- job_scraper/
+    |-- recommendation/
+    |-- resume_parser/
+    |-- salary_prediction/
+    |
+    |-- requirements.txt
+    |-- .gitignore
+    |-- LICENSE
+    |-- README.md
 
-```text
-dashboard/
-job_scraper/
-backend/
-database/
-models/
-recommendation/
-resume_parser/
-salary_prediction/
-tests/
-README.md
-requirements.txt
-```
+## Job Recommendation System
 
----
+Users can enter their skills manually or upload a PDF resume.
 
+The system compares the user's skills with job requirements and returns the best matching jobs with:
 
+- Company
+- Location
+- Required Skills
+- Match Score
+- Match Percentage
+
+## Resume Parser
+
+The resume parser extracts text from uploaded PDF resumes and identifies relevant technical skills.
+
+These extracted skills can then be used by the recommendation system to find suitable jobs.
+
+## Salary Prediction
+
+The salary prediction module estimates salary using information such as:
+
+- Job Role
+- Experience
+- Number of Skills
+
+The system provides:
+
+- Predicted Annual Salary
+- Estimated Package (LPA)
+- Estimated Monthly Salary
+- Salary Level
+- Career Growth Indicator
+
+## Dashboard
+
+The Streamlit dashboard provides an interactive interface for exploring job-market information.
+
+Users can filter jobs based on:
+
+- Location
+- Company
+- Experience
+- Skills
+- Salary Range
+- Posted Date
+
+## Installation
+
+Clone the repository:
+
+    git clone https://github.com/arun25129/AI-Job-Market-Intelligence-Platform.git
+
+Move into the project directory:
+
+    cd AI-Job-Market-Intelligence-Platform
 
 Install dependencies:
 
-```bash
-pip install -r requirements.txt
-```
+    pip install -r requirements.txt
 
-Run the application:
+## Run the Application
 
-```bash
-streamlit run dashboard/app.py
-```
+Start the Streamlit application:
 
----
+    streamlit run dashboard/app.py
 
-The dashboard provides:
+Then open the local Streamlit address shown in the terminal.
 
-- Total Jobs
-- Top Companies
-- Salary Insights
-- Job Locations
-- Experience Distribution
-- Interactive Charts
+## Future Improvements
 
----
+- Live job API integration
+- Advanced NLP-based resume analysis
+- Improved ML salary prediction model
+- Cloud deployment
+- User authentication
+- Personalized career recommendations
 
+## Author
 
+**Arun Kumar**
 
-Arun Kumar
+B.Tech Computer Science & Engineering  
+Data Science & Analysis  
+DIT University, Dehradun
 
-B.Tech CSE (Data Science & Analytics)
+GitHub: @arun25129
+
+## License
+
+This project is licensed under the MIT License.
